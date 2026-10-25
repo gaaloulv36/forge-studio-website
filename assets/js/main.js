@@ -1,28 +1,18 @@
-// Forge Studio — shared behaviour (nav, scroll reveal, card glow, contact form)
+// Open Forge Studio — shared behaviour (nav, reveal, ruler + section index, contact form)
 (function () {
   "use strict";
 
   document.documentElement.classList.add("js");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ---- Header: add a background once the page is scrolled ----
-  var header = document.querySelector(".site-header");
-  function onScroll() {
-    if (header) header.classList.toggle("is-scrolled", window.scrollY > 8);
-  }
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-
   // ---- Mobile menu ----
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.getElementById("mobile-menu");
   function setMenu(open) {
-    if (!toggle || !menu) return;
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     menu.classList.toggle("is-open", open);
     menu.inert = !open;
-    header.classList.toggle("menu-open", open);
     document.body.classList.toggle("no-scroll", open);
   }
   if (toggle && menu) {
@@ -39,15 +29,15 @@
         toggle.focus();
       }
     });
-    window.matchMedia("(min-width: 901px)").addEventListener("change", function (mq) {
+    window.matchMedia("(min-width: 961px)").addEventListener("change", function (mq) {
       if (mq.matches) setMenu(false);
     });
   }
 
-  // ---- Scroll reveal ----
-  var revealEls = document.querySelectorAll(".reveal");
+  // ---- Scroll reveal (elements) and rule drawing (sections) ----
+  var targets = document.querySelectorAll(".reveal, .section");
   if (reduceMotion || !("IntersectionObserver" in window)) {
-    revealEls.forEach(function (el) { el.classList.add("is-in"); });
+    targets.forEach(function (el) { el.classList.add("is-in"); });
   } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -56,20 +46,45 @@
           io.unobserve(entry.target);
         }
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-    revealEls.forEach(function (el) { io.observe(el); });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    targets.forEach(function (el) { io.observe(el); });
   }
 
-  // ---- Card glow follows the pointer ----
-  if (!reduceMotion) {
-    document.querySelectorAll(".card").forEach(function (card) {
-      card.addEventListener("pointermove", function (e) {
-        var r = card.getBoundingClientRect();
-        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        card.style.setProperty("--my", (e.clientY - r.top) + "px");
-      });
-    });
+  // ---- Side HUD: ruler with scroll marker, and section index ----
+  var ruler = document.querySelector(".ruler");
+  var index = document.querySelector(".section-index");
+  if (ruler) {
+    // Labels every 80px, matching the long ticks drawn in CSS
+    var labels = Math.ceil(window.screen.height / 80);
+    for (var i = 1; i < labels; i++) {
+      var s = document.createElement("span");
+      s.style.top = (i * 80) + "px";
+      s.textContent = String(i * 5).padStart(2, "0");
+      ruler.appendChild(s);
+    }
+    var marker = document.createElement("i");
+    marker.className = "marker";
+    ruler.appendChild(marker);
   }
+  var indexLinks = index ? Array.prototype.slice.call(index.querySelectorAll("a")) : [];
+  var indexed = indexLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? window.scrollY / max : 0;
+    if (ruler) marker.style.top = (p * ruler.clientHeight) + "px";
+
+    if (indexLinks.length) {
+      var line = window.innerHeight * 0.35, active = -1;
+      indexed.forEach(function (sec, i) {
+        if (sec && sec.getBoundingClientRect().top <= line) active = i;
+      });
+      indexLinks.forEach(function (a, i) { a.classList.toggle("is-active", i === active); });
+    }
+  }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
 
   // ---- Footer year ----
   document.querySelectorAll("[data-year]").forEach(function (el) {

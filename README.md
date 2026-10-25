@@ -1,9 +1,9 @@
-# Forge Studio website
+# Open Forge Studio website
 
-The official site for **Forge Studio**: products, custom work, and contact.
+The official site for **Open Forge Studio**: products, custom work, and contact.
 Plain HTML, CSS and JavaScript with no build step and no dependencies. Hosted on GitHub Pages.
 
-**Live:** https://gaaloulv36.github.io/forge-studio-website/
+**Live:** https://gaaloulv36.github.io/open-forge-studio-website/
 
 ## Structure
 
@@ -81,10 +81,28 @@ with
 Until then, the form shows a "not connected yet" message instead of sending.
 Links like `contact/?product=thermoforge` pre-select the product in the form.
 
-### Colours and fonts
+### Design system
 
 All brand values are CSS variables at the top of `assets/css/styles.css` (`--ember`, `--thermo`, `--vault`…).
 Product pages set their accent with `style="--accent: var(--thermo)"` on `<body>`.
+
+Fonts: Space Grotesk (headings), Inter (body) and Space Mono (the small uppercase labels, class `hud`).
+
+The layout is one bordered column (`.frame`). Each section is built the same way:
+
+```html
+<section class="section" id="…">
+  <span class="rule-line"></span>               <!-- full-width top line -->
+  <div class="frame">
+    <div class="bar hud">…01 / Title…</div>       <!-- sticky section label -->
+    <div class="section-intro"><h2>…</h2><p>…</p></div>
+    <div class="cells c-3">…</div>               <!-- grid with shared 1px borders -->
+  </div>
+</section>
+```
+
+Grids: `cells c-2 / c-3 / c-4 / c-6`. Inside a grid use `.cell` (text block), `.card` (label strip + media + body)
+or `.cta-cell` (wide call-to-action that turns light on hover). `span-2`, `span-3`, `span-all` widen a cell.
 
 ## Social preview images and favicons
 

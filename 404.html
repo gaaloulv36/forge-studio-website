@@ -5,35 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- GitHub Pages serves this file for any missing URL, so links are resolved from the site root.
        If you move the site to a custom domain, change this to <base href="/">. -->
-  <base href="/forge-studio-website/">
-  <title>Page not found · Forge Studio</title>
+  <base href="/open-forge-studio-website/">
+  <title>Page not found · Open Forge Studio</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#15171C">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <div class="bg-texture" aria-hidden="true"></div>
   <header class="site-header">
-    <nav class="nav container" aria-label="Main">
-      <a class="brand" href="./" aria-label="Forge Studio home">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="./" aria-label="Open Forge Studio home">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#22252D"/><rect x="17" y="14" width="10" height="36" rx="2" fill="#F4F1EC"/><rect x="17" y="14" width="26" height="9" rx="2" fill="#F4F1EC"/><rect x="17" y="30" width="19" height="8" rx="2" fill="#F4F1EC"/><path d="M50 9C50.6 13.2 52.8 15.4 57 16 52.8 16.6 50.6 18.8 50 23 49.4 18.8 47.2 16.6 43 16 47.2 15.4 49.4 13.2 50 9Z" fill="#F2752B"/></svg>
-        <span class="wordmark"><span class="w-forge">Forge</span><span class="w-studio"> Studio</span></span>
+        <span class="wordmark"><span class="w-forge">Open Forge</span><span class="w-studio"> Studio</span></span>
       </a>
     </nav>
   </header>
-  <main class="hero">
-    <div class="container notfound">
-      <p class="big">404</p>
-      <h1 style="font-size: clamp(2rem, 5vw, 3.4rem); margin-top: 16px">This page isn't here.</h1>
-      <p class="lead">The link may be old, or the page may have moved.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="./">Back to home</a>
-        <a class="btn btn-outline" href="contact/">Contact me</a>
+  <main>
+    <div class="frame">
+      <div class="notfound">
+        <p class="hud-row hud"><span class="live">Error 404</span><span>Page not found</span></p>
+        <p class="big">404</p>
+        <h1>This page isn't here.</h1>
+        <p class="lead">The link may be old, or the page may have moved.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="./">Back to home</a>
+          <a class="btn btn-line" href="contact/">Contact me</a>
+        </div>
       </div>
     </div>
   </main>

@@ -19,7 +19,7 @@ f.onload = function () {
   // Report horizontal overflow (page wider than the viewport) for quick checks
   var vw = d.documentElement.clientWidth, wide = [];
   d.querySelectorAll("body *").forEach(function (el) {
-    if (el.closest(".ticker, .hero-art, .closing, .mobile-menu")) return;
+    if (el.closest(".marquee, .closing, .mobile-menu, .hp")) return;
     var r = el.getBoundingClientRect();
     if (r.width && (r.right > vw + 1 || r.left < -1)) wide.push(el.tagName.toLowerCase() + "." + el.className);
   });

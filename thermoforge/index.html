@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ThermoForge · PC temperatures &amp; suspicious-process monitor · Forge Studio</title>
+  <title>ThermoForge · PC temperatures &amp; suspicious-process monitor · Open Forge Studio</title>
   <meta name="description" content="ThermoForge shows live CPU, GPU, drive and battery temperatures, and flags processes that behave like malware. Windows 10/11. Custom versions available.">
   <meta name="theme-color" content="#15171C">
-  <link rel="canonical" href="https://gaaloulv36.github.io/forge-studio-website/thermoforge/">
+  <link rel="canonical" href="https://gaaloulv36.github.io/open-forge-studio-website/thermoforge/">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Forge Studio">
+  <meta property="og:site_name" content="Open Forge Studio">
   <meta property="og:title" content="ThermoForge · PC temperatures & suspicious-process monitor">
   <meta property="og:description" content="Live hardware temperatures with history, and a process list that flags malware-like behaviour. Windows 10/11.">
-  <meta property="og:url" content="https://gaaloulv36.github.io/forge-studio-website/thermoforge/">
-  <meta property="og:image" content="https://gaaloulv36.github.io/forge-studio-website/assets/img/og-thermoforge.png">
+  <meta property="og:url" content="https://gaaloulv36.github.io/open-forge-studio-website/thermoforge/">
+  <meta property="og:image" content="https://gaaloulv36.github.io/open-forge-studio-website/assets/img/og-thermoforge.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="ThermoForge icon and name, with the line: PC temperatures and suspicious-process monitor.">
@@ -25,133 +25,125 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <script src="../assets/js/main.js" defer></script>
 </head>
 <body style="--accent: var(--thermo)">
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="bg-texture" aria-hidden="true"></div>
 
+  <!-- ============ Header ============ -->
   <header class="site-header">
-    <nav class="nav container" aria-label="Main">
-      <a class="brand" href="../" aria-label="Forge Studio home">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="../" aria-label="Open Forge Studio home">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#22252D"/><rect x="17" y="14" width="10" height="36" rx="2" fill="#F4F1EC"/><rect x="17" y="14" width="26" height="9" rx="2" fill="#F4F1EC"/><rect x="17" y="30" width="19" height="8" rx="2" fill="#F4F1EC"/><path d="M50 9C50.6 13.2 52.8 15.4 57 16 52.8 16.6 50.6 18.8 50 23 49.4 18.8 47.2 16.6 43 16 47.2 15.4 49.4 13.2 50 9Z" fill="#F2752B"/></svg>
-        <span class="wordmark"><span class="w-forge">Forge</span><span class="w-studio"> Studio</span></span>
+        <span class="wordmark"><span class="w-forge">Open Forge</span><span class="w-studio"> Studio</span></span>
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links hud">
+        <li><a href="../">Home</a></li>
         <li><a href="../#products">Products</a></li>
         <li><a href="../#custom">Custom work</a></li>
         <li><a href="../#about">About</a></li>
         <li><a href="../contact/">Contact</a></li>
       </ul>
-      <a class="btn btn-primary btn-sm nav-cta" href="../contact/?product=thermoforge">Request a custom version</a>
+      <span class="nav-spacer"></span>
+      <a class="nav-meta hud" href="https://github.com/gaaloulv36" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+        GitHub
+      </a>
+      <a class="nav-cta" href="../contact/?product=thermoforge">
+        Request a custom version
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span></button>
     </nav>
   </header>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="../#products">Products</a>
-    <a href="../#custom">Custom work</a>
-    <a href="../#about">About</a>
-    <a href="../contact/">Contact</a>
+    <a href="../">Home <span class="hud">←</span></a>
+    <a href="../#products">Products <span class="hud">01</span></a>
+    <a href="../#custom">Custom work <span class="hud">02</span></a>
+    <a href="../#about">About <span class="hud">03</span></a>
+    <a href="../contact/">Contact <span class="hud">→</span></a>
     <a class="btn btn-primary" href="../contact/?product=thermoforge">Request a custom version</a>
   </div>
 
   <main id="main">
     <!-- ============ Hero ============ -->
-    <section class="hero hero--product" aria-labelledby="hero-title">
-      <div class="container">
-        <ol class="breadcrumb reveal" aria-label="Breadcrumb">
-          <li><a href="../">Home</a></li>
-          <li><a href="../#products">Products</a></li>
-          <li aria-current="page">ThermoForge</li>
-        </ol>
-        <div class="product-hero-head reveal" style="--d:.05s">
-          <svg class="tile" viewBox="0 0 64 64" role="img" aria-label="ThermoForge app icon"><rect width="64" height="64" rx="15" fill="#22252D"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#E8463A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4a2 2 0 0 1 4 0v10.5a4 4 0 1 1-4 0Z"/><path d="M12 9v8"/><path d="M17 6h3M17 9.5h2"/></g><path d="M51 7C51.5 10.5 53.5 12.5 57 13 53.5 13.5 51.5 15.5 51 19 50.5 15.5 48.5 13.5 45 13 48.5 12.5 50.5 10.5 51 7Z" fill="#F2752B"/></svg>
-          <h1 id="hero-title" class="wordmark"><span class="w-prod">Thermo</span><span class="w-forge">Forge</span></h1>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="frame">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hud-row hud reveal"><a href="../#products" class="faint" style="text-decoration:none">← Products</a><span class="live">Available</span><span>01 · Monitoring · Security</span></p>
+            <div class="product-head reveal" style="--d:.05s">
+              <svg class="tile" viewBox="0 0 64 64" role="img" aria-label="ThermoForge app icon"><rect width="64" height="64" rx="15" fill="#22252D"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#E8463A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4a2 2 0 0 1 4 0v10.5a4 4 0 1 1-4 0Z"/><path d="M12 9v8"/><path d="M17 6h3M17 9.5h2"/></g><path d="M51 7C51.5 10.5 53.5 12.5 57 13 53.5 13.5 51.5 15.5 51 19 50.5 15.5 48.5 13.5 45 13 48.5 12.5 50.5 10.5 51 7Z" fill="#F2752B"/></svg>
+              <h1 id="hero-title" class="wordmark"><span class="w-prod">Thermo</span><span class="w-forge">Forge</span></h1>
+            </div>
+            <p class="lead reveal" style="--d:.1s">PC temperatures and a suspicious-process monitor for Windows. See how hot your hardware runs, and which programs are behaving like malware.</p>
+            <div class="actions reveal" style="--d:.15s">
+              <a class="btn btn-primary" href="../contact/?product=thermoforge">
+                Request a custom version
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a class="btn btn-line" href="https://github.com/gaaloulv36/thermoforge" rel="noopener">View on GitHub</a>
+            </div>
+          </div>
+
+          <!-- Spec sheet -->
+          <div class="spec reveal" style="--d:.1s">
+            <div class="spec-art blueprint" aria-hidden="true">
+              <svg class="tile" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#22252D"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#E8463A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4a2 2 0 0 1 4 0v10.5a4 4 0 1 1-4 0Z"/><path d="M12 9v8"/><path d="M17 6h3M17 9.5h2"/></g><path d="M51 7C51.5 10.5 53.5 12.5 57 13 53.5 13.5 51.5 15.5 51 19 50.5 15.5 48.5 13.5 45 13 48.5 12.5 50.5 10.5 51 7Z" fill="#F2752B"/></svg>
+            </div>
+            <div class="spec-row"><span class="hud">Platform</span><span class="v">Windows 10 / 11 (x64)</span></div>
+            <div class="spec-row"><span class="hud">Built with</span><span class="v">C# · .NET 10 · WPF</span></div>
+            <div class="spec-row"><span class="hud">Refresh</span><span class="v">Processes every 3 s</span></div>
+            <div class="spec-row"><span class="hud">Network</span><span class="v">Not needed for checks</span></div>
+          </div>
         </div>
-        <p class="lead reveal" style="--d:.1s">PC temperatures and a suspicious-process monitor for Windows. See how hot your hardware runs, and which programs are behaving like malware.</p>
-        <div class="hero-actions reveal" style="--d:.15s">
-          <a class="btn btn-primary" href="../contact/?product=thermoforge">
-            Request a custom version
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn-outline" href="https://github.com/gaaloulv36/thermoforge" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
-            View on GitHub
-          </a>
-        </div>
-        <ul class="trust reveal" style="--d:.2s">
-          <li>Windows 10 / 11</li>
-          <li>C# / .NET 10 / WPF</li>
-          <li>No network access needed for checks</li>
-        </ul>
       </div>
     </section>
 
-    <div class="ticker" aria-label="ThermoForge features">
-      <div class="ticker-track">
-        <ul>
-          <li>CPU temperature</li>
-          <li>GPU temperature</li>
-          <li>Drive temperature</li>
-          <li>Battery</li>
-          <li>Temperature history</li>
-          <li>Signature checks</li>
-          <li>Fake process names</li>
-          <li>Encoded PowerShell</li>
-          <li>Office launching shells</li>
-          <li>End process</li>
-        </ul>
-        <ul aria-hidden="true">
-          <li>CPU temperature</li>
-          <li>GPU temperature</li>
-          <li>Drive temperature</li>
-          <li>Battery</li>
-          <li>Temperature history</li>
-          <li>Signature checks</li>
-          <li>Fake process names</li>
-          <li>Encoded PowerShell</li>
-          <li>Office launching shells</li>
-          <li>End process</li>
-        </ul>
-      </div>
+    <div class="marquee hud" aria-label="ThermoForge features">
+      <ul class="marquee-track">
+        <li>CPU temperature</li><li>GPU temperature</li><li>Drive temperature</li><li>Battery</li><li>Temperature history</li>
+        <li>Signature checks</li><li>Fake process names</li><li>Encoded PowerShell</li><li>Office launching shells</li><li>End process</li>
+      </ul>
+      <ul class="marquee-track" aria-hidden="true">
+        <li>CPU temperature</li><li>GPU temperature</li><li>Drive temperature</li><li>Battery</li><li>Temperature history</li>
+        <li>Signature checks</li><li>Fake process names</li><li>Encoded PowerShell</li><li>Office launching shells</li><li>End process</li>
+      </ul>
     </div>
 
     <!-- ============ 01 / What it does ============ -->
     <section class="section" id="features" aria-labelledby="features-title">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow reveal"><span class="num">01</span><span class="slash">/</span>What it does</p>
-            <h2 id="features-title" class="reveal">Two tabs. Two questions answered.</h2>
-          </div>
-          <p class="sub reveal"><strong>Is my PC running too hot?</strong> And <strong>is anything running that shouldn't be?</strong> ThermoForge answers both, live.</p>
+      <span class="rule-line" aria-hidden="true"></span>
+      <div class="frame">
+        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
+        <div class="bar hud"><p><span class="n">01</span><span class="sep">/</span>What it does</p><p class="right">Two tabs</p></div>
+        <div class="section-intro">
+          <h2 id="features-title" class="reveal">Two tabs. <span class="soft">Two questions</span> answered.</h2>
+          <p class="reveal" style="--d:.06s"><strong>Is my PC running too hot?</strong> And <strong>is anything running that shouldn't be?</strong> ThermoForge answers both, live.</p>
         </div>
-
-        <div class="grid grid-2">
-          <article class="card reveal" style="--accent: var(--thermo)">
-            <span class="icon-chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4a2 2 0 0 1 4 0v10.5a4 4 0 1 1-4 0Z"/><path d="M12 9v8"/></svg></span>
-            <span class="card-label">Hardware tab</span>
+        <div class="cells c-2">
+          <article class="cell reveal">
+            <p class="hud">Hardware tab</p>
             <h3>Live temperatures, with history</h3>
-            <ul class="feature-list">
-              <li><strong>CPU, GPU, drives, RAM, battery</strong> and motherboard sensors, updated live</li>
-              <li>Summary cards coloured by status: normal, warm, hot</li>
-              <li>Rolling temperature history chart, with the sensors you choose</li>
-              <li>Session minimum and maximum for every sensor</li>
-              <li>Falls back to Windows thermal zones when not run as administrator</li>
+            <ul class="list">
+              <li><span><strong>CPU, GPU, drives, RAM, battery</strong> and motherboard sensors, updated live</span></li>
+              <li><span>Summary cards coloured by status: normal, warm, hot</span></li>
+              <li><span>Rolling temperature history chart, with the sensors you choose</span></li>
+              <li><span>Session minimum and maximum for every sensor</span></li>
+              <li><span>Falls back to Windows thermal zones when not run as administrator</span></li>
             </ul>
           </article>
-          <article class="card reveal" style="--accent: var(--thermo); --d:.06s">
-            <span class="icon-chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M12 8v4M12 15.5v.01"/></svg></span>
-            <span class="card-label">Processes tab</span>
+          <article class="cell reveal" style="--d:.06s">
+            <p class="hud">Processes tab</p>
             <h3>A process list that flags malware-like behaviour</h3>
-            <ul class="feature-list">
-              <li>Every running process, refreshed every 3 seconds, with CPU, memory, publisher and parent</li>
-              <li><strong>Digital signature check</strong> for each program, including Windows catalog and MSIX packages</li>
-              <li>Flags fake Windows process names, unsigned programs in Temp folders, tampered signatures, encoded PowerShell and Office apps launching shells</li>
-              <li>A badge on the tab shows how many medium and high findings there are</li>
-              <li>Search, show only flagged, open file location, copy path, search online, <strong>end process</strong> (critical Windows processes are protected)</li>
+            <ul class="list">
+              <li><span>Every running process, refreshed every 3 seconds, with CPU, memory, publisher and parent</span></li>
+              <li><span><strong>Digital signature check</strong> for each program, including Windows catalog and MSIX packages</span></li>
+              <li><span>Flags fake Windows process names, unsigned programs in Temp folders, tampered signatures, encoded PowerShell and Office apps launching shells</span></li>
+              <li><span>A badge on the tab shows how many medium and high findings there are</span></li>
+              <li><span>Search, show only flagged, open file location, copy path, search online, <strong>end process</strong> (critical Windows processes are protected)</span></li>
             </ul>
           </article>
         </div>
@@ -160,57 +152,59 @@
 
     <!-- ============ 02 / Process checks ============ -->
     <section class="section" id="checks" aria-labelledby="checks-title">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow reveal"><span class="num">02</span><span class="slash">/</span>Process checks</p>
-            <h2 id="checks-title" class="reveal">What it looks for.</h2>
-          </div>
-          <p class="sub reveal">Each process is checked every 3 seconds. Findings are hints, not verdicts: every rule has innocent explanations, so treat a flag as a reason to look closer.</p>
+      <span class="rule-line" aria-hidden="true"></span>
+      <div class="frame">
+        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
+        <div class="bar hud"><p><span class="n">02</span><span class="sep">/</span>Process checks</p><p class="right">Every 3 seconds</p></div>
+        <div class="section-intro">
+          <h2 id="checks-title" class="reveal">What it <span class="soft">looks</span> for.</h2>
+          <p class="reveal" style="--d:.06s">Findings are hints, not verdicts: every rule has innocent explanations, so treat a flag as a reason to look closer.</p>
         </div>
-
-        <div class="checks reveal" role="list">
-          <div class="check-row" role="listitem"><p>A Windows process name (svchost, lsass…) running from outside System32</p><span class="sev sev-high">High</span></div>
-          <div class="check-row" role="listitem"><p>A name one character off a Windows process, like <code>scvhost.exe</code></p><span class="sev sev-high">High</span></div>
-          <div class="check-row" role="listitem"><p>Invalid or tampered digital signature</p><span class="sev sev-high">High</span></div>
-          <div class="check-row" role="listitem"><p>Unsigned <em>and</em> running from Temp, Public, the Recycle Bin or the root of AppData / ProgramData</p><span class="sev sev-high">High</span></div>
-          <div class="check-row" role="listitem"><p>Encoded PowerShell, download-and-run commands, misuse of mshta, certutil, regsvr32 or rundll32</p><span class="sev sev-high">High</span></div>
-          <div class="check-row" role="listitem"><p>An Office app starting cmd, PowerShell or a script host</p><span class="sev sev-high">High</span></div>
-          <div class="check-row" role="listitem"><p>Running from a suspicious folder (one level lower if signed)</p><span class="sev sev-med">Medium</span></div>
-          <div class="check-row" role="listitem"><p>Hidden-window PowerShell, Base64 decoding, a browser starting a script host</p><span class="sev sev-med">Medium</span></div>
-          <div class="check-row" role="listitem"><p>Unsigned program in a normal location; execution-policy bypass</p><span class="sev sev-low">Low</span></div>
+        <div class="checks reveal" style="border-top:1px solid var(--line)">
+          <div class="checks-head hud" aria-hidden="true"><span>#</span><span>Check</span><span>Severity</span></div>
+          <ul>
+            <li class="row"><span class="hud">01</span><p>A Windows process name (svchost, lsass…) running from outside System32</p><span class="sev sev-high hud">High</span></li>
+            <li class="row"><span class="hud">02</span><p>A name one character off a Windows process, like <code>scvhost.exe</code></p><span class="sev sev-high hud">High</span></li>
+            <li class="row"><span class="hud">03</span><p>Invalid or tampered digital signature</p><span class="sev sev-high hud">High</span></li>
+            <li class="row"><span class="hud">04</span><p>Unsigned <em>and</em> running from Temp, Public, the Recycle Bin or the root of AppData / ProgramData</p><span class="sev sev-high hud">High</span></li>
+            <li class="row"><span class="hud">05</span><p>Encoded PowerShell, download-and-run commands, misuse of mshta, certutil, regsvr32 or rundll32</p><span class="sev sev-high hud">High</span></li>
+            <li class="row"><span class="hud">06</span><p>An Office app starting cmd, PowerShell or a script host</p><span class="sev sev-high hud">High</span></li>
+            <li class="row"><span class="hud">07</span><p>Running from a suspicious folder (one level lower if signed)</p><span class="sev sev-med hud">Medium</span></li>
+            <li class="row"><span class="hud">08</span><p>Hidden-window PowerShell, Base64 decoding, a browser starting a script host</p><span class="sev sev-med hud">Medium</span></li>
+            <li class="row"><span class="hud">09</span><p>Unsigned program in a normal location; execution-policy bypass</p><span class="sev sev-low hud">Low</span></li>
+          </ul>
+          <p class="note hud" style="border-top:1px solid var(--line)">Signatures are verified with WinVerifyTrust. Revocation is not checked, so no network access is needed.</p>
         </div>
-        <p class="checks-note reveal">Signatures are verified with Windows' own WinVerifyTrust. Revocation is not checked, so no network access is needed.</p>
       </div>
     </section>
 
     <!-- ============ 03 / Screenshots ============ -->
     <section class="section" id="screenshots" aria-labelledby="shots-title">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow reveal"><span class="num">03</span><span class="slash">/</span>Screenshots</p>
-            <h2 id="shots-title" class="reveal">See it running.</h2>
-          </div>
-          <p class="sub reveal">Real screenshots from the app.</p>
+      <span class="rule-line" aria-hidden="true"></span>
+      <div class="frame">
+        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
+        <div class="bar hud"><p><span class="n">03</span><span class="sep">/</span>Screenshots</p><p class="right">Captured in ThermoForge</p></div>
+        <div class="section-intro">
+          <h2 id="shots-title" class="reveal">See it <span class="soft">running.</span></h2>
         </div>
-        <div class="grid grid-2">
-          <!-- Replace each .shot div with: <div class="shot"><img src="../assets/img/thermoforge-hardware.png" alt="…" loading="lazy"></div> -->
-          <figure class="reveal">
-            <div class="shot">[SCREENSHOT: ThermoForge hardware tab]</div>
-            <figcaption>Hardware tab: live sensors and status cards.</figcaption>
+        <!-- To add a screenshot, replace a .shot div with:
+             <div class="shot"><img src="../assets/img/thermoforge-hardware.png" alt="…" loading="lazy"></div> -->
+        <div class="cells c-2">
+          <figure class="card reveal">
+            <figcaption class="card-strip hud"><span>Hardware tab</span><span class="faint">01</span></figcaption>
+            <div class="shot hud">[SCREENSHOT: ThermoForge hardware tab]</div>
           </figure>
-          <figure class="reveal" style="--d:.06s">
-            <div class="shot">[SCREENSHOT: ThermoForge processes tab]</div>
-            <figcaption>Processes tab: flagged processes and why.</figcaption>
+          <figure class="card reveal" style="--d:.06s">
+            <figcaption class="card-strip hud"><span>Processes tab</span><span class="faint">02</span></figcaption>
+            <div class="shot hud">[SCREENSHOT: ThermoForge processes tab]</div>
           </figure>
-          <figure class="reveal">
-            <div class="shot">[SCREENSHOT: ThermoForge temperature history chart]</div>
-            <figcaption>Temperature history for the sensors you pick.</figcaption>
+          <figure class="card reveal">
+            <figcaption class="card-strip hud"><span>Temperature history</span><span class="faint">03</span></figcaption>
+            <div class="shot hud">[SCREENSHOT: ThermoForge temperature history chart]</div>
           </figure>
-          <figure class="reveal" style="--d:.06s">
-            <div class="shot">[SCREENSHOT: ThermoForge finding details / end process]</div>
-            <figcaption>Finding details, open file location, end process.</figcaption>
+          <figure class="card reveal" style="--d:.06s">
+            <figcaption class="card-strip hud"><span>Finding details</span><span class="faint">04</span></figcaption>
+            <div class="shot hud">[SCREENSHOT: ThermoForge finding details / end process]</div>
           </figure>
         </div>
       </div>
@@ -218,31 +212,31 @@
 
     <!-- ============ 04 / Requirements ============ -->
     <section class="section" id="requirements" aria-labelledby="req-title">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow reveal"><span class="num">04</span><span class="slash">/</span>Requirements</p>
-            <h2 id="req-title" class="reveal">What you need to run it.</h2>
-          </div>
+      <span class="rule-line" aria-hidden="true"></span>
+      <div class="frame">
+        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
+        <div class="bar hud"><p><span class="n">04</span><span class="sep">/</span>Requirements</p><p class="right">Windows</p></div>
+        <div class="section-intro">
+          <h2 id="req-title" class="reveal">What you need <span class="soft">to run it.</span></h2>
         </div>
-        <div class="grid grid-2">
-          <div class="card reveal">
-            <span class="card-label">Requirements</span>
-            <ul class="req-list">
-              <li><span class="k">Operating system</span><span class="v">Windows 10 / 11 (x64)</span></li>
-              <li><span class="k">Runtime</span><span class="v">.NET 10</span></li>
-              <li><span class="k">Recommended</span><span class="v">Administrator rights</span></li>
-              <li><span class="k">For CPU temperatures</span><span class="v">PawnIO driver</span></li>
+        <div class="cells c-2">
+          <div class="cell reveal">
+            <p class="hud">Requirements</p>
+            <ul class="req">
+              <li><span class="k hud">Operating system</span><span class="v">Windows 10 / 11 (x64)</span></li>
+              <li><span class="k hud">Runtime</span><span class="v">.NET 10</span></li>
+              <li><span class="k hud">Recommended</span><span class="v">Administrator rights</span></li>
+              <li><span class="k hud">CPU temperatures</span><span class="v">PawnIO driver</span></li>
             </ul>
             <p>Without administrator rights, CPU, motherboard and RAM sensors are unavailable, and Windows hides the path and command line of system processes.</p>
           </div>
-          <div class="card reveal" style="--d:.06s">
-            <span class="card-label">Run from source</span>
+          <div class="cell reveal" style="--d:.06s">
+            <p class="hud">Run from source</p>
 <pre class="code"><span class="c"># PowerShell</span>
 git clone https://github.com/gaaloulv36/thermoforge.git
 cd thermoforge
 dotnet run --project src/ThermoForge.UI</pre>
-            <a class="card-link" href="https://github.com/gaaloulv36/thermoforge" rel="noopener">Read the full guide on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="card-link hud" href="https://github.com/gaaloulv36/thermoforge" rel="noopener">Full guide on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
       </div>
@@ -250,87 +244,74 @@ dotnet run --project src/ThermoForge.UI</pre>
 
     <!-- ============ 05 / Make it yours ============ -->
     <section class="section" id="custom" aria-labelledby="custom-title">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow reveal"><span class="num">05</span><span class="slash">/</span>Make it yours</p>
-            <h2 id="custom-title" class="reveal">A ThermoForge for your team.</h2>
-          </div>
-          <p class="sub reveal">Ideas for a custom version. Tell me what your machines and your people need.</p>
+      <span class="rule-line" aria-hidden="true"></span>
+      <div class="frame">
+        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
+        <div class="bar hud"><p><span class="n">05</span><span class="sep">/</span>Make it yours</p><p class="right">Custom versions</p></div>
+        <div class="section-intro">
+          <h2 id="custom-title" class="reveal">A ThermoForge <span class="soft">for your team.</span></h2>
+          <p class="reveal" style="--d:.06s">Ideas for a custom version. Tell me what your machines and your people need.</p>
         </div>
-        <div class="grid grid-6">
-          <article class="card span-2 reveal">
-            <span class="card-num">01</span>
-            <h3>Your rules</h3>
-            <p>Allow-lists for your approved software, extra checks for the folders and tools you care about.</p>
-          </article>
-          <article class="card span-2 reveal" style="--d:.05s">
-            <span class="card-num">02</span>
-            <h3>Your limits</h3>
-            <p>Temperature thresholds and alerts that match your hardware and your workload.</p>
-          </article>
-          <article class="card span-2 reveal" style="--d:.1s">
-            <span class="card-num">03</span>
-            <h3>Your reports</h3>
-            <p>Exports of findings and temperature history in a format your team can file or share.</p>
-          </article>
-          <a class="card cta-card span-6 reveal" href="../contact/?product=thermoforge">
-            <div class="cta-copy">
-              <span class="card-label">ThermoForge, customized</span>
+        <div class="cells c-3">
+          <div class="cell reveal"><p class="hud">A</p><h3>Your rules</h3><p>Allow-lists for your approved software, and extra checks for the folders and tools you care about.</p></div>
+          <div class="cell reveal" style="--d:.05s"><p class="hud">B</p><h3>Your limits</h3><p>Temperature thresholds and alerts that match your hardware and your workload.</p></div>
+          <div class="cell reveal" style="--d:.1s"><p class="hud">C</p><h3>Your reports</h3><p>Exports of findings and temperature history in a format your team can file or share.</p></div>
+          <a class="cta-cell span-all reveal" href="../contact/?product=thermoforge">
+            <div>
+              <p class="hud">ThermoForge, customized</p>
               <h3>Request a custom ThermoForge</h3>
               <p>Your branding, your checks, your reports. Tell me what you need.</p>
             </div>
-            <span class="cta-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="arrow-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </div>
       </div>
     </section>
 
     <!-- ============ Closing CTA ============ -->
-    <section class="section" aria-labelledby="closing-title">
-      <div class="container">
-        <div class="closing reveal">
-          <svg class="spark-big" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C12.9 8.3 15.7 11.1 22 12 15.7 12.9 12.9 15.7 12 22 11.1 15.7 8.3 12.9 2 12 8.3 11.1 11.1 8.3 12 2Z"/></svg>
-          <ul class="trust">
-            <li>ThermoForge</li>
-            <li>Custom versions</li>
-          </ul>
-          <h2 id="closing-title">Want it built around your machines?</h2>
-          <p class="lead">Send me a few lines about your setup and what you'd change. I'll reply with questions and a plan.</p>
-          <div class="hero-actions">
+    <section class="section" id="start" aria-labelledby="closing-title">
+      <span class="rule-line" aria-hidden="true"></span>
+      <div class="frame">
+        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
+        <div class="closing">
+          <p class="hud-row hud reveal"><span class="live">ThermoForge</span><span>Custom versions</span></p>
+          <h2 id="closing-title" class="reveal" style="--d:.05s">Built around <span class="ember">your machines.</span></h2>
+          <p class="lead reveal" style="--d:.1s">Send me a few lines about your setup and what you'd change. I'll reply with questions and a plan.</p>
+          <div class="actions reveal" style="--d:.15s">
             <a class="btn btn-primary" href="../contact/?product=thermoforge">
               Contact me
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn-outline" href="../vaultforge/">See VaultForge</a>
+            <a class="btn btn-line" href="../vaultforge/">See VaultForge</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ============ Footer ============ -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="../" aria-label="Forge Studio home">
+    <div class="frame">
+      <div class="cells footer-cells">
+        <div class="f-brand">
+          <a class="brand" href="../" aria-label="Open Forge Studio home">
             <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#22252D"/><rect x="17" y="14" width="10" height="36" rx="2" fill="#F4F1EC"/><rect x="17" y="14" width="26" height="9" rx="2" fill="#F4F1EC"/><rect x="17" y="30" width="19" height="8" rx="2" fill="#F4F1EC"/><path d="M50 9C50.6 13.2 52.8 15.4 57 16 52.8 16.6 50.6 18.8 50 23 49.4 18.8 47.2 16.6 43 16 47.2 15.4 49.4 13.2 50 9Z" fill="#F2752B"/></svg>
-            <span class="wordmark"><span class="w-forge">Forge</span><span class="w-studio"> Studio</span></span>
+            <span class="wordmark"><span class="w-forge">Open Forge</span><span class="w-studio"> Studio</span></span>
           </a>
           <p>Practical software, forged to fit. Desktop apps for monitoring, security and productivity.</p>
           <a class="email" href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
         </div>
-        <div class="footer-col">
+        <div class="f-col">
           <h4>Products</h4>
           <ul>
             <li><a href="./" aria-current="page">ThermoForge</a></li>
             <li><a href="../vaultforge/">VaultForge</a></li>
-            <li><span class="soon">PhotoForge<small>later</small></span></li>
-            <li><span class="soon">VideoForge<small>later</small></span></li>
-            <li><span class="soon">WordForge<small>later</small></span></li>
+            <li><span class="soon">PhotoForge · later</span></li>
+            <li><span class="soon">VideoForge · later</span></li>
+            <li><span class="soon">WordForge · later</span></li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div class="f-col">
           <h4>Studio</h4>
           <ul>
             <li><a href="../#custom">Custom work</a></li>
@@ -338,7 +319,7 @@ dotnet run --project src/ThermoForge.UI</pre>
             <li><a href="../contact/">Contact</a></li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div class="f-col">
           <h4>Elsewhere</h4>
           <ul>
             <li><a href="[YOUR LINKEDIN URL]" rel="noopener">LinkedIn</a></li>
@@ -347,11 +328,20 @@ dotnet run --project src/ThermoForge.UI</pre>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© <span data-year>2026</span> Forge Studio</span>
-        <span>Built and maintained by the developer behind the products.</span>
+      <div class="f-bottom hud">
+        <span>© <span data-year>2026</span> Open Forge Studio</span>
+        <span>Built by the developer behind the products</span>
       </div>
     </div>
   </footer>
+
+  <div class="ruler" aria-hidden="true"></div>
+  <nav class="section-index hud" aria-label="Sections">
+    <a href="#features">What it does</a>
+    <a href="#checks">Process checks</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#requirements">Requirements</a>
+    <a href="#custom">Make it yours</a>
+  </nav>
 </body>
 </html>
