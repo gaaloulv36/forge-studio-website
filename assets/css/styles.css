@@ -772,13 +772,18 @@ pre.code .c { color: var(--faint); }
 .ruler .marker::after { content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; background: var(--ember); }
 .section-index {
   position: fixed;
-  right: 54px;
-  bottom: 22px;
-  z-index: 20;
+  right: 50px;
+  bottom: 18px;
+  z-index: 40;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 2px;
+  padding: 10px 14px;
+  background: rgba(21, 23, 28, 0.92);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .section-index a { color: var(--faint); text-decoration: none; transition: color 0.15s; }
 .section-index a:hover, .section-index a.is-active { color: var(--ink); }
