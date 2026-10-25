@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- Social preview template. Rendered to assets/img/og-*.png by tools/render-images.sh -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #15171C; }
+  .card {
+    position: relative; width: 1200px; height: 630px; box-sizing: border-box; padding: 80px 88px;
+    color: #F4F1EC; font-family: Inter, sans-serif; display: flex; flex-direction: column; justify-content: space-between;
+    background:
+      radial-gradient(700px circle at 85% 10%, var(--glow), transparent 60%),
+      #15171C;
+    overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(244,241,236,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,241,236,.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: linear-gradient(200deg, #000 10%, transparent 75%);
+  }
+  .card > * { position: relative; }
+  .head { display: flex; align-items: center; gap: 40px; }
+  .head svg { width: 168px; height: 168px; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5)); }
+  .name { font-family: 'Space Grotesk', sans-serif; font-size: 104px; line-height: .95; letter-spacing: -3px; }
+  .name .p { font-weight: 500; } .name .f { font-weight: 700; color: var(--accent); }
+  .name .s { font-weight: 400; color: #A3A7B0; }
+  .line { font-family: 'Space Grotesk', sans-serif; font-size: 46px; font-weight: 500; letter-spacing: -1px; max-width: 980px; line-height: 1.15; color: #F4F1EC; }
+  .foot { display: flex; justify-content: space-between; align-items: center; font-size: 24px; color: #A3A7B0; }
+  .foot b { color: #F4F1EC; font-weight: 500; }
+  .pill { padding: 10px 22px; border-radius: 999px; background: #F2752B; color: #15171C; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <div class="head" id="head"></div>
+  <div class="line" id="line"></div>
+  <div class="foot"><span id="by"></span><span class="pill">Custom versions available</span></div>
+</div>
+<script>
+  var spark = '<path d="M51 7C51.5 10.5 53.5 12.5 57 13 53.5 13.5 51.5 15.5 51 19 50.5 15.5 48.5 13.5 45 13 48.5 12.5 50.5 10.5 51 7Z" fill="#F2752B"/>';
+  var variants = {
+    default: {
+      accent: "#F2752B", glow: "rgba(242,117,43,.28)",
+      tile: '<rect width="64" height="64" rx="15" fill="#22252D"/><rect x="17" y="14" width="10" height="36" rx="2" fill="#F4F1EC"/><rect x="17" y="14" width="26" height="9" rx="2" fill="#F4F1EC"/><rect x="17" y="30" width="19" height="8" rx="2" fill="#F4F1EC"/><path d="M50 9C50.6 13.2 52.8 15.4 57 16 52.8 16.6 50.6 18.8 50 23 49.4 18.8 47.2 16.6 43 16 47.2 15.4 49.4 13.2 50 9Z" fill="#F2752B"/>',
+      name: '<span class="f" style="color:#F4F1EC">Forge</span><span class="s"> Studio</span>',
+      line: 'Practical software, forged to fit. Desktop apps for monitoring, security and productivity.',
+      by: 'Independent software studio'
+    },
+    thermoforge: {
+      accent: "#E8463A", glow: "rgba(232,70,58,.26)",
+      tile: '<rect width="64" height="64" rx="15" fill="#22252D"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#E8463A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4a2 2 0 0 1 4 0v10.5a4 4 0 1 1-4 0Z"/><path d="M12 9v8"/><path d="M17 6h3M17 9.5h2"/></g>' + spark,
+      name: '<span class="p">Thermo</span><span class="f">Forge</span>',
+      line: 'PC temperatures &amp; suspicious-process monitor for Windows.',
+      by: 'by <b>Forge Studio</b>'
+    },
+    vaultforge: {
+      accent: "#3D8BFF", glow: "rgba(61,139,255,.24)",
+      tile: '<rect width="64" height="64" rx="15" fill="#22252D"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#3D8BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><circle cx="12" cy="10.5" r="1.8"/><path d="M12 12.3V15.5"/></g>' + spark,
+      name: '<span class="p">Vault</span><span class="f">Forge</span>',
+      line: 'Password manager.',
+      by: 'by <b>Forge Studio</b>'
+    }
+  };
+  var v = variants[location.hash.slice(1)] || variants.default;
+  var card = document.getElementById("card");
+  card.style.setProperty("--accent", v.accent);
+  card.style.setProperty("--glow", v.glow);
+  document.getElementById("head").innerHTML = '<svg viewBox="0 0 64 64">' + v.tile + '</svg><div class="name">' + v.name + '</div>';
+  document.getElementById("line").innerHTML = v.line;
+  document.getElementById("by").innerHTML = v.by;
+</script>
+</body>
+</html>

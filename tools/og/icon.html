@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- Draws the Forge Studio mark onto a canvas at an exact pixel size and writes the PNG as base64
+     into <pre id="out">. tools/render-images.sh reads it with --dump-dom.
+     Usage: icon.html#full-180 (apple-touch-icon) or icon.html#small-32 (favicon) -->
+<html><head><meta charset="utf-8"></head>
+<body><pre id="out"></pre>
+<script>
+  var full = '<rect width="64" height="64" fill="#22252D"/><rect x="17" y="14" width="10" height="36" rx="2" fill="#F4F1EC"/><rect x="17" y="14" width="26" height="9" rx="2" fill="#F4F1EC"/><rect x="17" y="30" width="19" height="8" rx="2" fill="#F4F1EC"/><path d="M50 9C50.6 13.2 52.8 15.4 57 16 52.8 16.6 50.6 18.8 50 23 49.4 18.8 47.2 16.6 43 16 47.2 15.4 49.4 13.2 50 9Z" fill="#F2752B"/>';
+  var small = '<rect width="64" height="64" rx="15" fill="#F2752B"/><rect x="18" y="13" width="12" height="38" rx="2.5" fill="#15171C"/><rect x="18" y="13" width="28" height="11" rx="2.5" fill="#15171C"/><rect x="18" y="30" width="21" height="10" rx="2.5" fill="#15171C"/>';
+  var parts = location.hash.slice(1).split("-");
+  var size = parseInt(parts[1], 10) || 180;
+  var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="' + size + '" height="' + size + '">' + (parts[0] === "small" ? small : full) + '</svg>';
+  var img = new Image();
+  img.onload = function () {
+    var c = document.createElement("canvas");
+    c.width = c.height = size;
+    c.getContext("2d").drawImage(img, 0, 0, size, size);
+    document.getElementById("out").textContent = c.toDataURL("image/png").split(",")[1];
+  };
+  img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+</script>
+</body></html>

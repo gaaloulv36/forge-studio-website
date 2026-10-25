@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- Dev helper: shows a page at a given width (e.g. phone) with animations finished.
+     Open http://localhost:8080/tools/preview.html?src=/&w=375  (y = scroll offset, vh = visible height) -->
+<html><head><meta charset="utf-8"><title>Preview</title>
+<style>html,body{margin:0;background:#000;overflow:hidden}iframe{border:0;display:block}#w{overflow:hidden}</style></head>
+<body><div id="w"></div><script>
+var p = new URLSearchParams(location.search);
+var w = document.getElementById("w");
+w.style.width = (p.get("w") || 375) + "px"; w.style.height = (p.get("vh") || 900) + "px";
+var f = document.createElement("iframe");
+f.src = p.get("src") || "/"; f.width = p.get("w") || 375; f.height = p.get("h") || 9000;
+f.style.marginTop = "-" + (p.get("y") || 0) + "px";
+f.onload = function () {
+  var d = f.contentDocument, s = d.createElement("style");
+  s.textContent = "*,*::before,*::after{transition:none!important;animation-play-state:paused!important}";
+  d.head.appendChild(s);
+  d.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-in"); });
+  if (p.get("menu")) d.querySelector(".nav-toggle").click();
+  // Report horizontal overflow (page wider than the viewport) for quick checks
+  var vw = d.documentElement.clientWidth, wide = [];
+  d.querySelectorAll("body *").forEach(function (el) {
+    if (el.closest(".ticker, .hero-art, .closing, .mobile-menu")) return;
+    var r = el.getBoundingClientRect();
+    if (r.width && (r.right > vw + 1 || r.left < -1)) wide.push(el.tagName.toLowerCase() + "." + el.className);
+  });
+  document.body.setAttribute("data-overflow", wide.slice(0, 5).join(" | ") || "none");
+};
+w.appendChild(f);
+</script></body></html>
