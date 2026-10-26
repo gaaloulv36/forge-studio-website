@@ -8,13 +8,13 @@ Plain HTML, CSS and JavaScript with no build step and no dependencies. Hosted on
 ## Structure
 
 ```
-index.html              Home (hero, ticker, 01 Products, 02 Custom work, 03 Why / About, CTA)
+index.html              Home (ecosystem hero with orbiting app cards, 01 Products, 02 Security, 03 Features, 04 Pricing, CTA)
 thermoforge/index.html  ThermoForge product page
 vaultforge/index.html   VaultForge product page (placeholders until details are filled in)
 contact/index.html      Contact form (Formspree) + LinkedIn / email / GitHub
 404.html                Not-found page
-assets/css/styles.css   All styles. Brand colours and fonts are the variables at the top.
-assets/js/main.js       Mobile menu, scroll reveal, card glow, contact form
+assets/css/styles.css   All styles. Theme colours (dark + light) and fonts are the variables at the top.
+assets/js/script.js     Theme toggle, mobile menu, scroll reveal, hero orbit animation, contact form
 assets/img/             Favicons and social preview (Open Graph) images
 tools/                  Helpers for regenerating images and previewing at phone width (not linked from the site)
 ```
@@ -31,12 +31,12 @@ python -m http.server 8080
 Then open http://localhost:8080.
 
 To see a page at phone width with animations finished, open
-http://localhost:8080/tools/preview.html?src=/&w=375 (change `src` to `/thermoforge/` etc.).
+http://localhost:8080/tools/preview.html?src=/&w=375 (change `src` to `/thermoforge/` etc., add `&theme=light`).
 
 ## Editing text
 
 Open the page's `index.html` in any editor and change the text between the tags. Sections are marked with
-comments like `<!-- ============ 02 / Custom work ============ -->`.
+comments like `<!-- ============ 02 / Security ============ -->`.
 
 The header and footer are repeated in each page, so a change to a nav link or the footer needs to be made in
 all five HTML files (search for the text and replace it everywhere).
@@ -47,13 +47,8 @@ Search the project for `[` to find them all:
 
 | Placeholder | Where |
 |---|---|
-| `[YOUR LINKEDIN URL]` | All pages (closing CTA, footer, contact) |
-| `[YOUR EMAIL]` | All pages (footer, contact) |
-| `[ONE OR TWO SENTENCES ABOUT YOU…]` | `index.html`, section 03 |
-| `[YOUR TERMS…]` | `index.html`, section 03, item B |
-| `[PLATFORM · TECH STACK]` | `index.html`, VaultForge card |
 | `[SCREENSHOT: …]` | Product pages, section 03 |
-| VaultForge `[…]` | `vaultforge/index.html` |
+| VaultForge `[…]` (platform, stack, features, key derivation) | `vaultforge/index.html` |
 | `YOUR_FORM_ID` | `contact/index.html` |
 
 Placeholders inside the page text are wrapped in `<span class="ph">…</span>`, which shows them in orange.
@@ -83,26 +78,43 @@ Links like `contact/?product=thermoforge` pre-select the product in the form.
 
 ### Design system
 
-All brand values are CSS variables at the top of `assets/css/styles.css` (`--ember`, `--thermo`, `--vault`…).
-Product pages set their accent with `style="--accent: var(--thermo)"` on `<body>`.
+All colours are CSS variables at the top of `assets/css/styles.css`. Dark is the default (`:root, [data-theme="dark"]`);
+`[data-theme="light"]` redefines the same variables. Main tokens: `--bg`, `--surface`, `--border`, `--text`,
+`--muted`, `--accent` (cyan), `--success` (green, for "secured / active" status).
+Product icon colours are `--tone-vault`, `--tone-thermo`… used with the classes `tone-vault`, `tone-thermo`…
 
-Fonts: Space Grotesk (headings), Inter (body) and Space Mono (the small uppercase labels, class `hud`).
+Theme: a short inline script in each page's `<head>` sets `data-theme` on `<html>` before the page paints
+(saved choice, else the system setting, else dark). The sun/moon button (`.theme-toggle`) switches it and saves the
+choice in `localStorage` under `ofs-theme`.
 
-The layout is one bordered column (`.frame`). Each section is built the same way:
+Font: JetBrains Mono for everything (text, headings, buttons, labels), loaded from Google Fonts as one variable
+font (weights 300–800). It's set once as `--font-mono` in `styles.css`; `--font-sans` is an alias of it.
+
+Each section is built the same way:
 
 ```html
 <section class="section" id="…">
-  <span class="rule-line"></span>               <!-- full-width top line -->
-  <div class="frame">
-    <div class="bar hud">…01 / Title…</div>       <!-- sticky section label -->
-    <div class="section-intro"><h2>…</h2><p>…</p></div>
-    <div class="cells c-3">…</div>               <!-- grid with shared 1px borders -->
+  <div class="container">
+    <header class="section-head">
+      <div>
+        <p class="index-tag"><span class="n">02</span><span class="sep">/</span>Title</p>
+        <h2>…</h2>
+      </div>
+      <p class="lead">…</p>
+    </header>
+    <div class="duo">…cards…</div>          <!-- or trio, product-grid, modules, pricing -->
   </div>
 </section>
 ```
 
-Grids: `cells c-2 / c-3 / c-4 / c-6`. Inside a grid use `.cell` (text block), `.card` (label strip + media + body)
-or `.cta-cell` (wide call-to-action that turns light on hover). `span-2`, `span-3`, `span-all` widen a cell.
+Building blocks: `.card` (lifts and glows on hover), `.pill` / `.pill-success` (status), `.index-badge`
+(`01 / VaultForge`), `.app-icon`, `.checklist`, `.btn btn-primary` / `.btn btn-outline`, `.module` (numbered feature).
+
+Animations: add `slide-up` or `fade-in` to any element and it animates in when scrolled into view.
+Stagger with `style="--d:.1s"`. Everything respects the visitor's reduced-motion setting.
+
+The header and footer are the same on every page. After changing them in `index.html`, copy the change to the other
+four pages (links there start with `../`; `404.html` uses root links because of its `<base href>`).
 
 ## Social preview images and favicons
 

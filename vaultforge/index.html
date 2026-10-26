@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VaultForge · Password manager · Open Forge Studio</title>
-  <meta name="description" content="VaultForge is a password manager by Open Forge Studio. Custom versions available for your team.">
-  <meta name="theme-color" content="#15171C">
+  <title>VaultForge · Zero-knowledge password vault · Open Forge Studio</title>
+  <meta name="description" content="VaultForge is a zero-knowledge password vault that encrypts everything on your own machine with AES-256. Free, with custom versions for teams.">
+  <meta name="theme-color" content="#090D16">
   <link rel="canonical" href="https://gaaloulv36.github.io/open-forge-studio-website/vaultforge/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Open Forge Studio">
   <meta property="og:title" content="VaultForge · Password manager">
-  <meta property="og:description" content="A password manager by Open Forge Studio. Custom versions available for your team.">
+  <meta property="og:description" content="A zero-knowledge password vault that encrypts everything locally with AES-256.">
   <meta property="og:url" content="https://gaaloulv36.github.io/open-forge-studio-website/vaultforge/">
   <meta property="og:image" content="https://gaaloulv36.github.io/open-forge-studio-website/assets/img/og-vaultforge.png">
   <meta property="og:image:width" content="1200">
@@ -23,107 +23,116 @@
   <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 
+  <!-- Theme before first paint (saved choice, else system, else dark). script.js handles the toggle. -->
+  <script>(function(d){var t;try{t=localStorage.getItem("ofs-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";d.setAttribute("data-theme",t);d.classList.add("js")})(document.documentElement)</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/script.js" defer></script>
 </head>
-<body style="--accent: var(--vault)">
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============ Header ============ -->
   <header class="site-header">
-    <nav class="nav" aria-label="Main">
+    <div class="container nav">
       <a class="brand" href="../" aria-label="Open Forge Studio home">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#22252D"/><rect x="17" y="14" width="10" height="36" rx="2" fill="#F4F1EC"/><rect x="17" y="14" width="26" height="9" rx="2" fill="#F4F1EC"/><rect x="17" y="30" width="19" height="8" rx="2" fill="#F4F1EC"/><path d="M50 9C50.6 13.2 52.8 15.4 57 16 52.8 16.6 50.6 18.8 50 23 49.4 18.8 47.2 16.6 43 16 47.2 15.4 49.4 13.2 50 9Z" fill="#F2752B"/></svg>
-        <span class="wordmark"><span class="w-forge">Open Forge</span><span class="w-studio"> Studio</span></span>
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect class="logo-bg" x="1" y="1" width="62" height="62" rx="16"/><g class="logo-f"><rect x="17" y="14" width="10" height="36" rx="2"/><rect x="17" y="14" width="26" height="9" rx="2"/><rect x="17" y="30" width="19" height="8" rx="2"/></g><path class="logo-spark" d="M50 9C50.6 13.2 52.8 15.4 57 16 52.8 16.6 50.6 18.8 50 23 49.4 18.8 47.2 16.6 43 16 47.2 15.4 49.4 13.2 50 9Z"/></svg>
+        <span>Open Forge <span class="studio">Studio</span></span>
       </a>
-      <ul class="nav-links hud">
-        <li><a href="../">Home</a></li>
-        <li><a href="../#products">Products</a></li>
-        <li><a href="../#custom">Custom work</a></li>
-        <li><a href="../#about">About</a></li>
-        <li><a href="../contact/">Contact</a></li>
-      </ul>
-      <span class="nav-spacer"></span>
-      <a class="nav-meta hud" href="https://github.com/gaaloulv36" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
-        GitHub
-      </a>
-      <a class="nav-cta" href="../contact/?product=vaultforge">
-        Request a custom version
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span></button>
-    </nav>
+      <nav aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="../#products">Products</a></li>
+          <li><a href="../#security">Security</a></li>
+          <li><a href="../#features">Features</a></li>
+          <li><a href="../#pricing">Pricing</a></li>
+        </ul>
+      </nav>
+      <div class="nav-end">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm nav-cta" href="../vaultforge/">
+          Explore VaultForge
+          <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span></button>
+      </div>
+    </div>
   </header>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="../">Home <span class="hud">←</span></a>
-    <a href="../#products">Products <span class="hud">01</span></a>
-    <a href="../#custom">Custom work <span class="hud">02</span></a>
-    <a href="../#about">About <span class="hud">03</span></a>
-    <a href="../contact/">Contact <span class="hud">→</span></a>
-    <a class="btn btn-primary" href="../contact/?product=vaultforge">Request a custom version</a>
+    <a href="../#products">Products <span class="mono">01</span></a>
+    <a href="../#security">Security <span class="mono">02</span></a>
+    <a href="../#features">Features <span class="mono">03</span></a>
+    <a href="../#pricing">Pricing <span class="mono">04</span></a>
+    <a href="../contact/">Contact <span class="mono">→</span></a>
+    <a class="btn btn-primary" href="../vaultforge/">Explore VaultForge</a>
   </div>
 
   <main id="main">
     <!-- ============ Hero ============ -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="frame">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="hud-row hud reveal"><a href="../#products" class="faint" style="text-decoration:none">← Products</a><span class="live">Available</span><span>02 · Security · Passwords</span></p>
-            <div class="product-head reveal" style="--d:.05s">
-              <svg class="tile" viewBox="0 0 64 64" role="img" aria-label="VaultForge app icon"><rect width="64" height="64" rx="15" fill="#22252D"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#3D8BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><circle cx="12" cy="10.5" r="1.8"/><path d="M12 12.3V15.5"/></g><path d="M51 7C51.5 10.5 53.5 12.5 57 13 53.5 13.5 51.5 15.5 51 19 50.5 15.5 48.5 13.5 45 13 48.5 12.5 50.5 10.5 51 7Z" fill="#F2752B"/></svg>
-              <h1 id="hero-title" class="wordmark"><span class="w-prod">Vault</span><span class="w-forge">Forge</span></h1>
-            </div>
-            <p class="lead reveal" style="--d:.1s">A password manager. <span class="ph">[ONE LINE: what VaultForge does for the user]</span></p>
-            <div class="actions reveal" style="--d:.15s">
-              <a class="btn btn-primary" href="../contact/?product=vaultforge">
-                Request a custom version
-                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <a class="btn btn-line" href="[VAULTFORGE REPO OR DOWNLOAD URL]" rel="noopener">View on GitHub</a>
-            </div>
+    <section class="hero product-hero" aria-labelledby="hero-title">
+      <div class="backdrop" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div>
+          <a class="back-link slide-up" href="../#products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>All products</a>
+          <div class="tag-row slide-up" style="--d:.04s">
+            <span class="index-badge"><span class="n">01</span> / VaultForge</span>
+            <span class="pill pill-success">Encrypted &amp; Local</span>
           </div>
+          <div class="product-title slide-up" style="--d:.08s">
+            <span class="app-icon lg tone-vault"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><circle cx="12" cy="10.5" r="1.8"/><path d="M12 12.3V15.5"/></svg></span>
+            <h1 id="hero-title">Vault<span class="forge">Forge</span></h1>
+          </div>
+          <p class="hero-sub slide-up" style="--d:.12s">A zero-knowledge password vault: your digital coffre. Every entry is encrypted with <strong>AES-256 on your own machine</strong> before it's saved, and only your master password can open it.</p>
+          <div class="actions slide-up" style="--d:.16s">
+            <a class="btn btn-primary" href="#get">
+              Get VaultForge Free
+              <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-outline" href="https://github.com/gaaloulv36/vaultforge" rel="noopener">View Source</a>
+          </div>
+        </div>
 
-          <!-- Spec sheet -->
-          <div class="spec reveal" style="--d:.1s">
-            <div class="spec-art blueprint" aria-hidden="true">
-              <svg class="tile" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#22252D"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#3D8BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><circle cx="12" cy="10.5" r="1.8"/><path d="M12 12.3V15.5"/></g><path d="M51 7C51.5 10.5 53.5 12.5 57 13 53.5 13.5 51.5 15.5 51 19 50.5 15.5 48.5 13.5 45 13 48.5 12.5 50.5 10.5 51 7Z" fill="#F2752B"/></svg>
-            </div>
-            <div class="spec-row"><span class="hud">Platform</span><span class="v"><span class="ph">[PLATFORM]</span></span></div>
-            <div class="spec-row"><span class="hud">Built with</span><span class="v"><span class="ph">[TECH STACK]</span></span></div>
-            <div class="spec-row"><span class="hud">Storage</span><span class="v"><span class="ph">[WHERE DATA LIVES]</span></span></div>
-            <div class="spec-row"><span class="hud">Account</span><span class="v"><span class="ph">[KEY FACT]</span></span></div>
+        <!-- Spec sheet -->
+        <div class="card spec-card fade-in" style="--d:.15s">
+          <div class="spec-art" aria-hidden="true">
+            <span class="dial-pulse"></span><span class="dial-pulse p2"></span>
+            <span class="app-icon lg tone-vault"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><circle cx="12" cy="10.5" r="1.8"/><path d="M12 12.3V15.5"/></svg></span>
           </div>
+          <div class="spec-row"><span class="k">Encryption</span><span class="v">AES-256, on device</span></div>
+          <div class="spec-row"><span class="k">Storage</span><span class="v">Your machine only</span></div>
+          <div class="spec-row"><span class="k">Platform</span><span class="v"><span class="ph">[PLATFORM]</span></span></div>
+          <div class="spec-row"><span class="k">Built with</span><span class="v"><span class="ph">[TECH STACK]</span></span></div>
         </div>
       </div>
     </section>
 
-    <div class="marquee hud" aria-label="VaultForge features">
+    <div class="marquee" aria-label="VaultForge features">
       <ul class="marquee-track">
-        <li>Password vault</li><li>Encrypted storage</li><li>Master password</li><li>[FEATURE TAG]</li><li>[FEATURE TAG]</li><li>[FEATURE TAG]</li><li>Custom builds</li>
+        <li>Password vault</li><li>AES-256</li><li>Zero-knowledge</li><li>Master password</li><li>Local-first</li><li>No cloud account</li><li>[FEATURE TAG]</li><li>Custom builds</li>
       </ul>
       <ul class="marquee-track" aria-hidden="true">
-        <li>Password vault</li><li>Encrypted storage</li><li>Master password</li><li>[FEATURE TAG]</li><li>[FEATURE TAG]</li><li>[FEATURE TAG]</li><li>Custom builds</li>
+        <li>Password vault</li><li>AES-256</li><li>Zero-knowledge</li><li>Master password</li><li>Local-first</li><li>No cloud account</li><li>[FEATURE TAG]</li><li>Custom builds</li>
       </ul>
     </div>
 
     <!-- ============ 01 / What it does ============ -->
     <section class="section" id="features" aria-labelledby="features-title">
-      <span class="rule-line" aria-hidden="true"></span>
-      <div class="frame">
-        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
-        <div class="bar hud"><p><span class="n">01</span><span class="sep">/</span>What it does</p><p class="right">Features</p></div>
-        <div class="section-intro">
-          <h2 id="features-title" class="reveal">Your logins, <span class="soft">locked down.</span></h2>
-          <p class="reveal" style="--d:.06s"><span class="ph">[TWO SENTENCES: the problem VaultForge solves and how]</span></p>
-        </div>
-        <div class="cells c-2">
-          <article class="cell reveal">
-            <p class="hud"><span class="ph">[FEATURE GROUP 1, e.g. The vault]</span></p>
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="index-tag slide-up"><span class="n">01</span><span class="sep">/</span>What it does</p>
+            <h2 id="features-title" class="slide-up" style="--d:.05s">Your logins, <span class="soft">locked down.</span></h2>
+          </div>
+          <p class="lead slide-up" style="--d:.1s"><span class="ph">[TWO SENTENCES: the problem VaultForge solves and how]</span></p>
+        </header>
+        <div class="duo">
+          <article class="card slide-up">
+            <p class="kicker"><span class="ph">[FEATURE GROUP 1, e.g. The vault]</span></p>
             <h3><span class="ph">[HEADLINE]</span></h3>
             <ul class="list">
               <li><span><span class="ph">[FEATURE]</span></span></li>
@@ -132,8 +141,8 @@
               <li><span><span class="ph">[FEATURE]</span></span></li>
             </ul>
           </article>
-          <article class="cell reveal" style="--d:.06s">
-            <p class="hud"><span class="ph">[FEATURE GROUP 2, e.g. Everyday use]</span></p>
+          <article class="card slide-up" style="--d:.06s">
+            <p class="kicker"><span class="ph">[FEATURE GROUP 2, e.g. Everyday use]</span></p>
             <h3><span class="ph">[HEADLINE]</span></h3>
             <ul class="list">
               <li><span><span class="ph">[FEATURE]</span></span></li>
@@ -148,66 +157,80 @@
 
     <!-- ============ 02 / Security ============ -->
     <section class="section" id="security" aria-labelledby="security-title">
-      <span class="rule-line" aria-hidden="true"></span>
-      <div class="frame">
-        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
-        <div class="bar hud"><p><span class="n">02</span><span class="sep">/</span>Security</p><p class="right">How it's protected</p></div>
-        <div class="section-intro">
-          <h2 id="security-title" class="reveal">How your data <span class="soft">is protected.</span></h2>
-          <p class="reveal" style="--d:.06s"><span class="ph">[SHORT SUMMARY of the security model]</span></p>
-        </div>
-        <div class="cells c-3">
-          <div class="cell reveal"><p class="hud">A</p><h3><span class="ph">[ENCRYPTION]</span></h3><p><span class="ph">[How the vault is encrypted]</span></p></div>
-          <div class="cell reveal" style="--d:.05s"><p class="hud">B</p><h3><span class="ph">[MASTER PASSWORD]</span></h3><p><span class="ph">[How the master password is handled]</span></p></div>
-          <div class="cell reveal" style="--d:.1s"><p class="hud">C</p><h3><span class="ph">[WHERE DATA LIVES]</span></h3><p><span class="ph">[Local file, sync, cloud…]</span></p></div>
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="index-tag slide-up"><span class="n">02</span><span class="sep">/</span>Security</p>
+            <h2 id="security-title" class="slide-up" style="--d:.05s">How your data <span class="soft">is protected.</span></h2>
+          </div>
+          <p class="lead slide-up" style="--d:.1s">All cryptography happens on your machine. What's saved to disk is ciphertext, and <strong>the only key that opens it is your master password.</strong></p>
+        </header>
+        <div class="trio">
+          <article class="card sec-card slide-up">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9.5 9.5h5v5h-5z"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span>
+            <h3>AES-256 encryption</h3>
+            <p>Every entry is encrypted with AES-256 in memory, before anything is written. <span class="ph">[MODE, e.g. AES-256-GCM]</span></p>
+          </article>
+          <article class="card sec-card slide-up" style="--d:.05s">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M16 7l3 3M14 9l2 2"/></svg></span>
+            <h3>Master password</h3>
+            <p>Never stored and never sent. The encryption key is derived from it on your device. <span class="ph">[KEY DERIVATION, e.g. Argon2id / PBKDF2 and parameters]</span></p>
+          </article>
+          <article class="card sec-card slide-up" style="--d:.1s">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span>
+            <h3>Where data lives</h3>
+            <p>Your vault is a local, encrypted file on your machine. No account and no cloud copy. <span class="ph">[BACKUP / EXPORT OPTIONS]</span></p>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- ============ 03 / Screenshots ============ -->
     <section class="section" id="screenshots" aria-labelledby="shots-title">
-      <span class="rule-line" aria-hidden="true"></span>
-      <div class="frame">
-        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
-        <div class="bar hud"><p><span class="n">03</span><span class="sep">/</span>Screenshots</p><p class="right">Captured in VaultForge</p></div>
-        <div class="section-intro">
-          <h2 id="shots-title" class="reveal">See it <span class="soft">running.</span></h2>
-        </div>
-        <div class="cells c-2">
-          <figure class="card reveal">
-            <figcaption class="card-strip hud"><span>Unlock screen</span><span class="faint">01</span></figcaption>
-            <div class="shot hud">[SCREENSHOT: VaultForge unlock screen]</div>
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="index-tag slide-up"><span class="n">03</span><span class="sep">/</span>Screenshots</p>
+            <h2 id="shots-title" class="slide-up" style="--d:.05s">See it <span class="soft">running.</span></h2>
+          </div>
+        </header>
+        <!-- To add a screenshot, replace a .shot div with:
+             <div class="shot"><img src="../assets/img/vaultforge-unlock.png" alt="…" loading="lazy"></div> -->
+        <div class="duo">
+          <figure class="card shot-card slide-up">
+            <figcaption><span>Unlock screen</span><span>01</span></figcaption>
+            <div class="shot">[SCREENSHOT: VaultForge unlock screen]</div>
           </figure>
-          <figure class="card reveal" style="--d:.06s">
-            <figcaption class="card-strip hud"><span>Vault</span><span class="faint">02</span></figcaption>
-            <div class="shot hud">[SCREENSHOT: VaultForge vault / entries list]</div>
+          <figure class="card shot-card slide-up" style="--d:.06s">
+            <figcaption><span>Vault</span><span>02</span></figcaption>
+            <div class="shot">[SCREENSHOT: VaultForge vault / entries list]</div>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ 04 / Requirements ============ -->
-    <section class="section" id="requirements" aria-labelledby="req-title">
-      <span class="rule-line" aria-hidden="true"></span>
-      <div class="frame">
-        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
-        <div class="bar hud"><p><span class="n">04</span><span class="sep">/</span>Requirements</p><p class="right">Get it</p></div>
-        <div class="section-intro">
-          <h2 id="req-title" class="reveal">What you need <span class="soft">to run it.</span></h2>
-        </div>
-        <div class="cells c-2">
-          <div class="cell reveal">
-            <p class="hud">Requirements</p>
+    <!-- ============ 04 / Get it ============ -->
+    <section class="section" id="get" aria-labelledby="req-title">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="index-tag slide-up"><span class="n">04</span><span class="sep">/</span>Get it</p>
+            <h2 id="req-title" class="slide-up" style="--d:.05s">Free. <span class="soft">Installs in a minute.</span></h2>
+          </div>
+        </header>
+        <div class="duo">
+          <div class="card slide-up">
+            <p class="kicker">Requirements</p>
             <ul class="req">
-              <li><span class="k hud">Operating system</span><span class="v"><span class="ph">[PLATFORM]</span></span></li>
-              <li><span class="k hud">Runtime</span><span class="v"><span class="ph">[RUNTIME]</span></span></li>
-              <li><span class="k hud">Other</span><span class="v"><span class="ph">[ANYTHING ELSE]</span></span></li>
+              <li><span class="k">Operating system</span><span class="v"><span class="ph">[PLATFORM]</span></span></li>
+              <li><span class="k">Runtime</span><span class="v"><span class="ph">[RUNTIME]</span></span></li>
+              <li><span class="k">Other</span><span class="v"><span class="ph">[ANYTHING ELSE]</span></span></li>
             </ul>
           </div>
-          <div class="cell reveal" style="--d:.06s">
-            <p class="hud">Get it</p>
-            <p><span class="ph">[HOW TO INSTALL: installer, release page or build from source]</span></p>
-            <a class="card-link hud" href="[VAULTFORGE REPO OR DOWNLOAD URL]" rel="noopener">Full guide on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="card slide-up" style="--d:.06s">
+            <p class="kicker">Download</p>
+            <p class="after"><span class="ph">[HOW TO INSTALL: installer, release page or build from source]</span></p>
+            <a class="link-arrow" href="https://github.com/gaaloulv36/vaultforge/releases/latest" rel="noopener">Download the latest release <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
       </div>
@@ -215,45 +238,35 @@
 
     <!-- ============ 05 / Make it yours ============ -->
     <section class="section" id="custom" aria-labelledby="custom-title">
-      <span class="rule-line" aria-hidden="true"></span>
-      <div class="frame">
-        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
-        <div class="bar hud"><p><span class="n">05</span><span class="sep">/</span>Make it yours</p><p class="right">Custom versions</p></div>
-        <div class="section-intro">
-          <h2 id="custom-title" class="reveal">A VaultForge <span class="soft">for your team.</span></h2>
-          <p class="reveal" style="--d:.06s">Ideas for a custom version. Tell me how your team handles passwords today.</p>
-        </div>
-        <div class="cells c-3">
-          <div class="cell reveal"><p class="hud">A</p><h3>Your branding</h3><p>Your company name, logo and colours in the app your team opens every day.</p></div>
-          <div class="cell reveal" style="--d:.05s"><p class="hud">B</p><h3>Your policies</h3><p>Password rules that match your company's requirements.</p></div>
-          <div class="cell reveal" style="--d:.1s"><p class="hud">C</p><h3>Your setup</h3><p>Storage and deployment that fit the way your machines are managed.</p></div>
-          <a class="cta-cell span-all reveal" href="../contact/?product=vaultforge">
-            <div>
-              <p class="hud">VaultForge, customized</p>
-              <h3>Request a custom VaultForge</h3>
-              <p>Tell me what your team needs from a password manager.</p>
-            </div>
-            <span class="arrow-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="index-tag slide-up"><span class="n">05</span><span class="sep">/</span>Make it yours</p>
+            <h2 id="custom-title" class="slide-up" style="--d:.05s">A VaultForge <span class="soft">for your team.</span></h2>
+          </div>
+          <p class="lead slide-up" style="--d:.1s">Ideas for a custom version. Tell me how your team handles passwords today.</p>
+        </header>
+        <div class="modules">
+          <article class="module slide-up"><span class="num">A</span><h3>Your branding</h3><p>Your company name, logo and colours in the app your team opens every day.</p></article>
+          <article class="module slide-up" style="--d:.05s"><span class="num">B</span><h3>Your policies</h3><p>Password rules that match your company's requirements.</p></article>
+          <article class="module slide-up" style="--d:.1s"><span class="num">C</span><h3>Your setup</h3><p>Storage and deployment that fit the way your machines are managed.</p></article>
         </div>
       </div>
     </section>
 
     <!-- ============ Closing CTA ============ -->
-    <section class="section" id="start" aria-labelledby="closing-title">
-      <span class="rule-line" aria-hidden="true"></span>
-      <div class="frame">
-        <span class="tick tl" aria-hidden="true"></span><span class="tick tr" aria-hidden="true"></span>
-        <div class="closing">
-          <p class="hud-row hud reveal"><span class="live">VaultForge</span><span>Custom versions</span></p>
-          <h2 id="closing-title" class="reveal" style="--d:.05s">A vault that <span class="ember">fits your team.</span></h2>
-          <p class="lead reveal" style="--d:.1s">Send me a few lines about how you work and what you'd change. I'll reply with questions and a plan.</p>
-          <div class="actions reveal" style="--d:.15s">
+    <section class="section cta-section" aria-labelledby="closing-title">
+      <div class="container">
+        <div class="cta-band slide-up">
+          <p class="eyebrow">[ <b>06</b> / VaultForge, customized ]</p>
+          <h2 id="closing-title">A vault that <span class="accent">fits your team.</span></h2>
+          <p class="lead">Send me a few lines about how you work and what you'd change. I'll reply with questions and a plan.</p>
+          <div class="actions">
             <a class="btn btn-primary" href="../contact/?product=vaultforge">
-              Contact me
-              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              Request a custom VaultForge
+              <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn-line" href="../thermoforge/">See ThermoForge</a>
+            <a class="btn btn-outline" href="../thermoforge/">See ThermoForge</a>
           </div>
         </div>
       </div>
@@ -262,57 +275,51 @@
 
   <!-- ============ Footer ============ -->
   <footer class="site-footer">
-    <div class="frame">
-      <div class="cells footer-cells">
-        <div class="f-brand">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
           <a class="brand" href="../" aria-label="Open Forge Studio home">
-            <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#22252D"/><rect x="17" y="14" width="10" height="36" rx="2" fill="#F4F1EC"/><rect x="17" y="14" width="26" height="9" rx="2" fill="#F4F1EC"/><rect x="17" y="30" width="19" height="8" rx="2" fill="#F4F1EC"/><path d="M50 9C50.6 13.2 52.8 15.4 57 16 52.8 16.6 50.6 18.8 50 23 49.4 18.8 47.2 16.6 43 16 47.2 15.4 49.4 13.2 50 9Z" fill="#F2752B"/></svg>
-            <span class="wordmark"><span class="w-forge">Open Forge</span><span class="w-studio"> Studio</span></span>
+            <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect class="logo-bg" x="1" y="1" width="62" height="62" rx="16"/><g class="logo-f"><rect x="17" y="14" width="10" height="36" rx="2"/><rect x="17" y="14" width="26" height="9" rx="2"/><rect x="17" y="30" width="19" height="8" rx="2"/></g><path class="logo-spark" d="M50 9C50.6 13.2 52.8 15.4 57 16 52.8 16.6 50.6 18.8 50 23 49.4 18.8 47.2 16.6 43 16 47.2 15.4 49.4 13.2 50 9Z"/></svg>
+            <span>Open Forge <span class="studio">Studio</span></span>
           </a>
-          <p>Practical software, forged to fit. Desktop apps for monitoring, security and productivity.</p>
-          <a class="email" href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+          <p>Privacy-first micro-apps that keep your data on your machine.</p>
+          <div class="social">
+            <a href="https://github.com/gaaloulv36" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+            <a href="https://www.linkedin.com/in/med-amine-gaaloul-14100a192/" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.84-2.05 3.78-2.05 4.04 0 4.79 2.66 4.79 6.12V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a>
+          </div>
         </div>
-        <div class="f-col">
+        <div>
           <h4>Products</h4>
           <ul>
+            <li><a href="../vaultforge/">VaultForge</a></li>
             <li><a href="../thermoforge/">ThermoForge</a></li>
-            <li><a href="./" aria-current="page">VaultForge</a></li>
             <li><span class="soon">PhotoForge · later</span></li>
             <li><span class="soon">VideoForge · later</span></li>
             <li><span class="soon">WordForge · later</span></li>
           </ul>
         </div>
-        <div class="f-col">
+        <div>
           <h4>Studio</h4>
           <ul>
-            <li><a href="../#custom">Custom work</a></li>
-            <li><a href="../#about">About</a></li>
+            <li><a href="../#security">Security</a></li>
+            <li><a href="../#features">Features</a></li>
+            <li><a href="../#pricing">Pricing</a></li>
             <li><a href="../contact/">Contact</a></li>
           </ul>
         </div>
-        <div class="f-col">
+        <div>
           <h4>Elsewhere</h4>
           <ul>
-            <li><a href="[YOUR LINKEDIN URL]" rel="noopener">LinkedIn</a></li>
             <li><a href="https://github.com/gaaloulv36" rel="noopener">GitHub</a></li>
-            <li><a href="mailto:[YOUR EMAIL]">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/med-amine-gaaloul-14100a192/" rel="noopener">LinkedIn</a></li>
           </ul>
         </div>
       </div>
-      <div class="f-bottom hud">
+      <div class="footer-bottom">
         <span>© <span data-year>2026</span> Open Forge Studio</span>
-        <span>Built by the developer behind the products</span>
+        <span class="status-line"><i aria-hidden="true"></i>All apps run locally · nothing to breach on our side</span>
       </div>
     </div>
   </footer>
-
-  <div class="ruler" aria-hidden="true"></div>
-  <nav class="section-index hud" aria-label="Sections">
-    <a href="#features">What it does</a>
-    <a href="#security">Security</a>
-    <a href="#screenshots">Screenshots</a>
-    <a href="#requirements">Requirements</a>
-    <a href="#custom">Make it yours</a>
-  </nav>
 </body>
 </html>
