@@ -1,6 +1,7 @@
 <!doctype html>
 <!-- Dev helper: shows a page at a given width (e.g. phone) with animations finished.
-     Open http://localhost:8080/tools/preview.html?src=/&w=375  (y = scroll offset, vh = visible height) -->
+     Open http://localhost:8080/tools/preview.html?src=/&w=375  (y = scroll offset, vh = visible height,
+     theme = light | dark, app = vault | shield | flow | devkit to pick the hero's spotlight app) -->
 <html><head><meta charset="utf-8"><title>Preview</title>
 <style>html,body{margin:0;background:#000;overflow:hidden}iframe{border:0;display:block}#w{overflow:hidden}</style></head>
 <body><div id="w"></div><script>
@@ -14,12 +15,14 @@ f.onload = function () {
   var d = f.contentDocument, s = d.createElement("style");
   s.textContent = "*,*::before,*::after{transition:none!important;animation-play-state:paused!important}";
   d.head.appendChild(s);
-  d.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-in"); });
+  d.querySelectorAll(".fade-in, .slide-up").forEach(function (el) { el.classList.add("is-visible"); });
+  if (p.get("theme")) d.documentElement.setAttribute("data-theme", p.get("theme"));
   if (p.get("menu")) d.querySelector(".nav-toggle").click();
+  if (p.get("app")) d.querySelector(".eco-hero").setAttribute("data-app", p.get("app"));
   // Report horizontal overflow (page wider than the viewport) for quick checks
   var vw = d.documentElement.clientWidth, wide = [];
   d.querySelectorAll("body *").forEach(function (el) {
-    if (el.closest(".marquee, .closing, .mobile-menu, .hp")) return;
+    if (el.closest(".marquee, .backdrop, .orbit, .mobile-menu, .hp")) return;
     var r = el.getBoundingClientRect();
     if (r.width && (r.right > vw + 1 || r.left < -1)) wide.push(el.tagName.toLowerCase() + "." + el.className);
   });
