@@ -95,7 +95,7 @@
         navToggle.focus();
       }
     });
-    window.matchMedia("(min-width: 921px)").addEventListener("change", function (mq) {
+    window.matchMedia("(min-width: 1025px)").addEventListener("change", function (mq) {
       if (mq.matches) setMenu(false);
     });
   }
@@ -141,6 +141,18 @@
   onScrollHeader();
   onScrollSpy();
   window.addEventListener("scroll", onScroll, { passive: true });
+
+  // ---- Logo: on the page it links to, scroll back to the top instead of reloading ----
+  var pagePath = function (p) { return p.replace(/index\.html$/, ""); };
+  document.querySelectorAll("a.brand").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;   // new tab / window still works
+      if (pagePath(a.pathname) !== pagePath(location.pathname)) return;
+      e.preventDefault();
+      window.scrollTo(0, 0);   // smooth via CSS scroll-behavior (instant with reduced motion)
+      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
 
   // ---- Card spotlight: the glow follows the pointer ----
   if (finePointer) {
