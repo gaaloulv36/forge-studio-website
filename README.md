@@ -9,6 +9,7 @@ Plain HTML, CSS and JavaScript with no build step and no dependencies. Hosted on
 
 ```
 index.html              Home (ecosystem hero with orbiting app cards, 01 Products, 02 Security, 03 Features, 04 Pricing, CTA)
+products/index.html     All products (available now + in the works); the header's "Explore Open Forge Studio" button opens it
 thermoforge/index.html  ThermoForge product page
 vaultforge/index.html   VaultForge product page (placeholders until details are filled in)
 contact/index.html      Contact form (Formspree) + LinkedIn / email / GitHub
